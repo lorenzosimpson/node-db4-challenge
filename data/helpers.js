@@ -15,3 +15,6 @@ on recipe_ingredients.ingredient_id = ingredients.id
 where recipe_name = 'Pumpkin Pie';
 */
 
+module.exports = {
+    find
+}
