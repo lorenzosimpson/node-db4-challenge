@@ -29,7 +29,23 @@ function getShoppingList(id) {
     .where('recipe_id', id)
 }
 
+/*
+select step_number, step_desc
+from instructions
+join recipes
+on instructions.recipe_id = recipes.id
+where recipe_id = '1';
+*/
+
+function getInstructions(id) {
+    return db.select('step_number', 'step_desc')
+    .from('instructions')
+    .join('recipes', 'instructions.recipe_id', 'recipes.id')
+    .where('recipe_id', id)
+}
+
 module.exports = {
     getRecipes,
-    getShoppingList
+    getShoppingList,
+    getInstructions
 }
