@@ -34,6 +34,7 @@ exports.up = function(knex) {
   
     .createTable('recipe_ingredients', tbl => {
         tbl.increments()
+        tbl.float('quantity').notNullable()
         tbl.integer('recipe_id')
           .unsigned()
           .notNullable()
