@@ -15,8 +15,21 @@ on recipe_ingredients.ingredient_id = ingredients.id
 where recipe_name = 'Pumpkin Pie';
 */
 
+/*
+select ingredient_name as ingredients, quantity from recipe_ingredients
+join ingredients
+on recipe_ingredients.ingredient_id = ingredients.id
+where recipe_id = '3';
+*/
 
+function getShoppingList(id) {
+    return db.select('ingredient_name', 'quantity')
+    .from('recipe_ingredients')
+    .join('ingredients', 'recipe_ingredients.ingredient_id', 'ingredients.id')
+    .where('recipe_id', id)
+}
 
 module.exports = {
     getRecipes,
+    getShoppingList
 }
